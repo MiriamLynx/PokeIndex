@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class SearchActivity extends Activity {
 
@@ -49,7 +51,9 @@ public class SearchActivity extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public class PlaceholderFragment extends Fragment {
+
+        private TextView tittle;
 
         public PlaceholderFragment() {
         }
@@ -58,6 +62,10 @@ public class SearchActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+
+            String title = getIntent().getExtras().getString("title");
+            tittle = (TextView) rootView.findViewById(R.id.texttittle);
+            tittle.setText(title);
             return rootView;
         }
     }

@@ -71,6 +71,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("title","Pokemon");
                     startActivity(intent);
                 }
             });
