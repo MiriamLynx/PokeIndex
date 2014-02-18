@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    tools:context="com.app.MainActivity$PlaceholderFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="149dp"
+            android:id="@+id/logoview"
+            android:layout_gravity="center|top" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="85dp"
+            android:id="@+id/pokemonbutton"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="85dp"
+            android:id="@+id/mtbutton"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="85dp"
+            android:id="@+id/citybutton"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</RelativeLayout>
