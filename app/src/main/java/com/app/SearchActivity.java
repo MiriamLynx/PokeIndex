@@ -1,5 +1,6 @@
 package com.app;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -11,7 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import static com.app.R.drawable.buttonpokeballsinv;
 
 public class SearchActivity extends Activity {
 
@@ -53,19 +57,24 @@ public class SearchActivity extends Activity {
      */
     public class PlaceholderFragment extends Fragment {
 
-        private TextView tittle;
+        private ImageView view = (ImageView) findViewById(R.id.titleview);
 
         public PlaceholderFragment() {
         }
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
 
-            String title = getIntent().getExtras().getString("title");
-            tittle = (TextView) rootView.findViewById(R.id.texttittle);
-            tittle.setText(title);
+            int title = getIntent().getExtras().getInt("title");
+           switch (title){
+               case 0: view.setImageResource(R.drawable.pokemonsearch);
+               case 1: view.setImageResource(R.drawable.pokeballsearch);
+               case 2: view.setImageResource(R.drawable.ciudadeseach);
+               case 3: view.setImageResource(R.drawable.mtseach);
+           }
             return rootView;
         }
     }

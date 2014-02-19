@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("title","Búsqueda de Pokemon");
+                    intent.putExtra("title",1);
                     startActivity(intent);
                 }
             });
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("title","Búsqueda de Pokemon");
+                    intent.putExtra("title",0);
                     startActivity(intent);
                 }
             });
@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("title","Búsqueda de MT");
+                    intent.putExtra("title",3);
                     startActivity(intent);
                 }
             });
@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("title","Búsqueda de Ciudades");
+                    intent.putExtra("title",2);
                     startActivity(intent);
                 }
             });
