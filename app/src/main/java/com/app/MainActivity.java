@@ -3,10 +3,12 @@ package com.app;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -32,7 +34,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -55,15 +57,29 @@ public class MainActivity extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        private ImageButton buttonBall;
         private ImageButton buttonPokemon;
+        private ImageButton buttonMt;
+        private ImageButton buttonCity;
 
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            buttonBall = (ImageButton) rootView.findViewById(R.id.ballbutton);
+
+            buttonBall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("title","Búsqueda de Pokemon");
+                    startActivity(intent);
+                }
+            });
 
             buttonPokemon = (ImageButton) rootView.findViewById(R.id.pokemonbutton);
 
@@ -71,10 +87,33 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("title","Pokemon");
+                    intent.putExtra("title","Búsqueda de Pokemon");
                     startActivity(intent);
                 }
             });
+
+            buttonMt = (ImageButton) rootView.findViewById(R.id.mtbutton);
+
+            buttonMt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("title","Búsqueda de MT");
+                    startActivity(intent);
+                }
+            });
+
+            buttonCity = (ImageButton) rootView.findViewById(R.id.citybutton);
+
+            buttonCity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("title","Búsqueda de Ciudades");
+                    startActivity(intent);
+                }
+            });
+
             return rootView;
         }
     }
