@@ -16,7 +16,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:id="@+id/linearLayout"
+        android:gravity="bottom">
 
         <ImageView
             android:layout_width="300dp"
@@ -58,5 +60,38 @@
             android:layout_margin="5dp"
             android:background="@drawable/mtbuttonselector" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal|bottom">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eeveeview"
+                android:background="@drawable/eevee"
+                android:layout_alignTop="@+id/linearLayout"
+                android:layout_alignRight="@+id/linearLayout"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="bottom|left" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/espeonview"
+                android:cropToPadding="false"
+                android:background="@drawable/espeon"
+                android:layout_gravity="bottom|right"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
+
 </RelativeLayout>
