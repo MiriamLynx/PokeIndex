@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
         private ImageButton buttonPokemon;
         private ImageButton buttonMt;
         private ImageButton buttonCity;
+        private ImageButton buttonTypes;
 
         public PlaceholderFragment() {
         }
@@ -110,6 +111,16 @@ public class MainActivity extends Activity {
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("title",2);
+                    startActivity(intent);
+                }
+            });
+
+            buttonTypes = (ImageButton) rootView.findViewById(R.id.typesbutton);
+
+            buttonTypes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), TypesActivity.class);
                     startActivity(intent);
                 }
             });

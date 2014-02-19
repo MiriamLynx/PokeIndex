@@ -26,14 +26,13 @@
             android:id="@+id/logoview"
             android:layout_gravity="center|top"
             android:background="@drawable/title"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginBottom="20dp" />
 
         <ImageButton
             android:layout_width="220dp"
             android:layout_height="60dp"
             android:id="@+id/pokemonbutton"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
             android:background="@drawable/pokemonbuttonselector" />
 
         <ImageButton
@@ -41,7 +40,6 @@
             android:layout_height="60dp"
             android:id="@+id/ballbutton"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
             android:background="@drawable/pokeballbuttonselector" />
 
         <ImageButton
@@ -49,7 +47,6 @@
             android:layout_height="60dp"
             android:id="@+id/citybutton"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
             android:background="@drawable/ciudadesbuttonselector" />
 
         <ImageButton
@@ -57,7 +54,13 @@
             android:layout_height="60dp"
             android:id="@+id/mtbutton"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
+            android:background="@drawable/mtbuttonselector" />
+
+        <ImageButton
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:id="@+id/typesbutton"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/mtbuttonselector" />
 
         <LinearLayout
