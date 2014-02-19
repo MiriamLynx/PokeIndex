@@ -40,7 +40,7 @@
             android:id="@+id/ballbutton"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="@drawable/pokemonbuttonselector" />
+            android:background="@drawable/pokeballbuttonselector" />
 
         <ImageButton
             android:layout_width="220dp"
@@ -48,7 +48,7 @@
             android:id="@+id/citybutton"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="@drawable/pokemonbuttonselector" />
+            android:background="@drawable/ciudadesbuttonselector" />
 
         <ImageButton
             android:layout_width="220dp"
@@ -56,7 +56,7 @@
             android:id="@+id/mtbutton"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="@drawable/pokemonbuttonselector" />
+            android:background="@drawable/mtbuttonselector" />
 
     </LinearLayout>
 </RelativeLayout>
