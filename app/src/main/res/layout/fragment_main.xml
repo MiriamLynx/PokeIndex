@@ -30,36 +30,43 @@
 
         <ImageButton
             android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:id="@+id/pokemonbutton"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/pokemonbuttonselector" />
 
         <ImageButton
             android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:id="@+id/ballbutton"
+            android:layout_height="50dp"
+            android:id="@+id/habilitiesbutton"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/pokeballbuttonselector" />
+            android:background="@drawable/pokemonbuttonselector" />
 
         <ImageButton
             android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:id="@+id/citybutton"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/ciudadesbuttonselector" />
-
-        <ImageButton
-            android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:id="@+id/mtbutton"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/mtbuttonselector" />
-
-        <ImageButton
-            android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:id="@+id/typesbutton"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/pokemonbuttonselector" />
+
+        <ImageButton
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:id="@+id/strategiesbutton"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/pokemonbuttonselector" />
+
+        <ImageButton
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:id="@+id/objectsbutton"
+            android:background="@drawable/pokemonbuttonselector"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:id="@+id/mtbutton"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/mtbuttonselector" />
 

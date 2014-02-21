@@ -1,6 +1,5 @@
 package com.app;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -11,16 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class SearchActivity extends Activity {
+public class EffectivenessActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_effectiveness);
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -34,7 +30,7 @@ public class SearchActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.search, menu);
+        getMenuInflater().inflate(R.menu.effectiveness, menu);
         return true;
     }
 
@@ -53,30 +49,15 @@ public class SearchActivity extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public class PlaceholderFragment extends Fragment {
-
-        private ImageView view;
+    public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
         }
 
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-           view  = (ImageView) rootView.findViewById(R.id.titleview);
-            int title = getIntent().getExtras().getInt("title");
-           switch (title){
-               case 0: view.setBackgroundResource(R.drawable.pokemonsearch);
-                   break;
-               case 1: view.setBackgroundResource(R.drawable.pokemonsearch);
-                   break;
-               case 2: view.setBackgroundResource(R.drawable.pokemonsearch);
-                   break;
-               case 3: view.setBackgroundResource(R.drawable.mtseach);
-                   break;
-           }
+            View rootView = inflater.inflate(R.layout.fragment_effectiveness, container, false);
             return rootView;
         }
     }

@@ -25,7 +25,31 @@
         <activity
             android:name="com.app.TypesActivity"
             android:label="@string/title_activity_types"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.app.ListActivity"
+            android:label="@string/title_activity_list" >
+        </activity>
+        <activity
+            android:name="com.app.EffectivenessActivity"
+            android:label="@string/title_activity_effectiveness" >
+        </activity>
+        <activity
+            android:name="com.app.Description"
+            android:label="@string/title_activity_description" >
+        </activity>
+        <activity
+            android:name="com.app.Strategies"
+            android:label="@string/title_activity_strategies" >
+        </activity>
+        <activity
+            android:name="com.app.Login"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.app.AddStrategy"
+            android:label="@string/title_activity_add_strategy" >
         </activity>
     </application>
 

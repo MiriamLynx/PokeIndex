@@ -16,132 +16,178 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="false"
+        android:gravity="center">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/bugbutton"
+                android:background="@drawable/bugselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton2" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/darkbutton"
+                android:background="@drawable/darkselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton3" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/dragonbutton"
+                android:background="@drawable/dragonselector"
+                android:layout_margin="5dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton4" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/electricbutton"
+                android:background="@drawable/electricselector"
+                android:layout_margin="5dp"
+                android:layout_gravity="left" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton6" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/fairybutton"
+                android:background="@drawable/fairyselector"
+                android:layout_margin="5dp"
+                android:layout_gravity="center" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton5" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/fightbutton"
+                android:background="@drawable/fightselector"
+                android:layout_margin="5dp"
+                android:layout_gravity="right" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton7" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/firebutton"
+                android:background="@drawable/fireselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton8" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/flyingbutton"
+                android:background="@drawable/flyingselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton9" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/ghostbutton"
+                android:background="@drawable/ghostselector"
+                android:layout_margin="5dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton10" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/grassbutton"
+                android:background="@drawable/grassselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton11" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/groundbutton"
+                android:background="@drawable/groundselector"
+                android:layout_margin="5dp" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton12" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/icebutton"
+                android:background="@drawable/iceselector"
+                android:layout_margin="5dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton13" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/normalbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/normalselector" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton14" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/posionbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/poisonselector" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton15" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/psychbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/psychselector" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton16" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/rockbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/rockselector" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton17" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/steelbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/steelselector" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButton18" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/waterbutton"
+                android:layout_margin="5dp"
+                android:background="@drawable/waterselector" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
