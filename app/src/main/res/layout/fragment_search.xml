@@ -33,10 +33,18 @@
             android:layout_margin="20dp" />
 
         <ImageButton
-            android:layout_width="fill_parent"
+            android:layout_width="220dp"
             android:layout_height="50dp"
             android:id="@+id/imageButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/findallbuttonselector" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageview"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="250dp" />
     </LinearLayout>
 
 </RelativeLayout>

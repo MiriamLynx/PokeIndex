@@ -56,6 +56,7 @@ public class SearchActivity extends Activity {
     public class PlaceholderFragment extends Fragment {
 
         private ImageView view;
+        private ImageView image;
 
         public PlaceholderFragment() {
         }
@@ -66,15 +67,20 @@ public class SearchActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
            view  = (ImageView) rootView.findViewById(R.id.titleview);
+           image = (ImageView) rootView.findViewById(R.id.imageview);
             int title = getIntent().getExtras().getInt("title");
            switch (title){
                case 0: view.setBackgroundResource(R.drawable.pokemonsearch);
+                       image.setBackgroundResource(R.drawable.pokedex);
                    break;
-               case 1: view.setBackgroundResource(R.drawable.pokemonsearch);
+               case 1: view.setBackgroundResource(R.drawable.habilitysearch);
+                   image.setBackgroundResource(R.drawable.habilidad);
                    break;
-               case 2: view.setBackgroundResource(R.drawable.pokemonsearch);
+               case 2: view.setBackgroundResource(R.drawable.objectsearch);
+                   image.setBackgroundResource(R.drawable.pot);
                    break;
                case 3: view.setBackgroundResource(R.drawable.mtseach);
+                   image.setBackgroundResource(R.drawable.mtmo);
                    break;
            }
             return rootView;
