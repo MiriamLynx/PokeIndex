@@ -66,11 +66,17 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/donotaffectlabel"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:layout_marginBottom="60dp">
 
             <ImageView
@@ -80,12 +86,6 @@
                     android:layout_gravity="center"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/donotaffectlabel"
-                android:layout_gravity="right" />
 
             <ImageView
                 android:layout_width="60dp"
