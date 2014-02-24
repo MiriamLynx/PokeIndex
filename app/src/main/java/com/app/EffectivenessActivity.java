@@ -68,7 +68,11 @@ public class EffectivenessActivity extends Activity {
         private ImageView ineffective3;
         private ImageView ineffective4;
         private ImageView ineffective5;
+        private ImageView ineffective6;
+        private ImageView ineffective7;
         private ImageView donotaffect;
+        private ImageView donotaffectlabel;
+        private ImageView title;
 
         public PlaceholderFragment() {
         }
@@ -78,6 +82,7 @@ public class EffectivenessActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_effectiveness, container, false);
             currenttypeview = (ImageView) rootView.findViewById(R.id.currenttypeview);
+            title = (ImageView) rootView.findViewById(R.id.typetitle);
             effective1 = (ImageView) rootView.findViewById(R.id.effective1);
             effective2 = (ImageView) rootView.findViewById(R.id.effective2);
             effective3 = (ImageView) rootView.findViewById(R.id.effective3);
@@ -95,15 +100,19 @@ public class EffectivenessActivity extends Activity {
             ineffective3 = (ImageView) rootView.findViewById(R.id.ineffective3);
             ineffective4 = (ImageView) rootView.findViewById(R.id.ineffective4);
             ineffective5 = (ImageView) rootView.findViewById(R.id.ineffective5);
+            ineffective6 = (ImageView) rootView.findViewById(R.id.ineffective6);
+            ineffective7 = (ImageView) rootView.findViewById(R.id.ineffective7);
             ImageView[] ineffectiveviews = new ImageView[] {
                     ineffective1,
                     ineffective2,
                     ineffective3,
                     ineffective4,
-                    ineffective5
+                    ineffective5,
+                    ineffective6,
+                    ineffective7
             };
-            donotaffect = (ImageView) rootView.findViewById(R.id.donotaffect);
             String type = getIntent().getExtras().getString("type");
+            title.setBackgroundResource(getTitle(type));
             String[] effectives = Effective.getArray(type);
             String[] ineffectives = Ineffective.getArray(type);
             String[] donotaffects = DoNotAffect.getArray(type);
@@ -113,50 +122,94 @@ public class EffectivenessActivity extends Activity {
             for(int i = 0; i < ineffectives.length; i++)
                 ineffectiveviews[i].setBackgroundResource(getId(ineffectives[i]));
             if(donotaffects.length > 0){
+                donotaffect = (ImageView) rootView.findViewById(R.id.donotaffect);
+                donotaffectlabel = (ImageView) rootView.findViewById(R.id.donotaffectlabel);
                 donotaffect.setBackgroundResource(getId(donotaffects[0]));
+                donotaffectlabel.setBackgroundResource(R.drawable.noafecta);
             }
             return rootView;
         }
 
     private int getId(String type){
         if(type.equals("bug")){
-            return 0x7f020001;
+            return R.drawable.bug;
         }else if(type.equals("dark")){
-            return 0x7f020007;
+            return R.drawable.dark;
         }else if(type.equals("dragon")){
-            return 0x7f02000a;
+            return R.drawable.dragon;
         } else if(type.equals("electric")){
-            return 0x7f02000e;
+            return R.drawable.electric;
         }else if(type.equals("fairy")){
-            return 0x7f020012;
+            return R.drawable.fairy;
         }else if(type.equals("fight")){
-            return 0x7f020015;
+            return R.drawable.fight;
         }else if(type.equals("fire")){
-            return 0x7f020018;
+            return R.drawable.fire;
         }else if(type.equals("flying")){
-            return 0x7f02001b;
+            return R.drawable.flying;
         }else if(type.equals("ghost")){
-            return 0x7f02001e;
+            return R.drawable.ghost;
         }else if(type.equals("grass")){
-            return 0x7f020021;
+            return R.drawable.grass;
         }else if(type.equals("ground")){
-            return 0x7f020024;
+            return R.drawable.ground;
         }else if(type.equals("ice")){
-            return 0x7f020028;
+            return R.drawable.ice;
         }else if(type.equals("poison")){
-            return 0x7f02002f;
+            return R.drawable.poison;
         }else if(type.equals("psych")){
-            return 0x7f020033;
+            return R.drawable.psych;
         }else if(type.equals("steel")){
-            return 0x7f020039;
+            return R.drawable.steel;
         }else if(type.equals("rock")){
-            return 0x7f020036;
+            return R.drawable.rock;
         }else if(type.equals("normal")){
-            return 0x7f02002c;
+            return R.drawable.normal;
         }else if(type.equals("water")){
-            return 0x7f02003d;
+            return R.drawable.water;
         }
         return -1;
     }
+
+        private int getTitle(String type){
+            if(type.equals("bug")){
+                return R.drawable.bicho;
+            }else if(type.equals("dark")){
+                return R.drawable.siniestro;
+            }else if(type.equals("dragon")){
+                return R.drawable.dragont;
+            } else if(type.equals("electric")){
+                return R.drawable.electrico;
+            }else if(type.equals("fairy")){
+                return R.drawable.hada;
+            }else if(type.equals("fight")){
+                return R.drawable.lucha;
+            }else if(type.equals("fire")){
+                return R.drawable.fuego;
+            }else if(type.equals("flying")){
+                return R.drawable.volador;
+            }else if(type.equals("ghost")){
+                return R.drawable.fantasma;
+            }else if(type.equals("grass")){
+                return R.drawable.planta;
+            }else if(type.equals("ground")){
+                return R.drawable.tierra;
+            }else if(type.equals("ice")){
+                return R.drawable.hielo;
+            }else if(type.equals("poison")){
+                return R.drawable.veneno;
+            }else if(type.equals("psych")){
+                return R.drawable.psiquico;
+            }else if(type.equals("steel")){
+                return R.drawable.acero;
+            }else if(type.equals("rock")){
+                return R.drawable.roca;
+            }else if(type.equals("normal")){
+                return R.drawable.normalt;
+            }else if(type.equals("water")){
+                return R.drawable.agua;
+            }
+            return -1;
+        }
 }
 }
