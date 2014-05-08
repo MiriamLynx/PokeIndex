@@ -15,6 +15,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import domain.Pokemon;
+import util.DBRequest;
+
 public class SearchActivity extends Activity {
 
     @Override
@@ -57,6 +62,8 @@ public class SearchActivity extends Activity {
 
         private ImageView view;
         private ImageView image;
+        private ImageButton button;
+        private TextView list;
 
         public PlaceholderFragment() {
         }
@@ -68,7 +75,9 @@ public class SearchActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
            view  = (ImageView) rootView.findViewById(R.id.titleview);
            image = (ImageView) rootView.findViewById(R.id.imageview);
+
             int title = getIntent().getExtras().getInt("title");
+
            switch (title){
                case 0: view.setBackgroundResource(R.drawable.pokemonsearch);
                        image.setBackgroundResource(R.drawable.pokedex);
@@ -83,7 +92,29 @@ public class SearchActivity extends Activity {
                    image.setBackgroundResource(R.drawable.mtmo);
                    break;
            }
+
+            button = (ImageButton) rootView.findViewById(R.id.findAllButton);
+
+            list = (TextView) rootView.findViewById(R.id.listText);
+
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DBRequest request = new DBRequest();
+                    List<Pokemon> result = request.getAll();
+                    list.setText(makeString(result));
+                }
+            });
+
             return rootView;
+        }
+
+        private String makeString(List<Pokemon> pokemons){
+            String s = "";
+            for(int i = 0; i < pokemons.size(); i++){
+                s += pokemons.get(i).getNumber() + " " + pokemons.get(i).getName() + "\n";
+            }
+            return s;
         }
     }
 
