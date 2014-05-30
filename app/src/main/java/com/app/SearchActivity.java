@@ -114,6 +114,7 @@ public class SearchActivity extends Activity {
             for(int i = 0; i < pokemons.size(); i++){
                 s += pokemons.get(i).getNumber() + " " + pokemons.get(i).getName() + "\n";
             }
+            System.out.println(s);
             return s;
         }
     }

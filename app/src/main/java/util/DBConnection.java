@@ -10,15 +10,14 @@ import java.sql.Statement;
  */
 public class DBConnection {
 
-    static String host      = "192.168.4.81"; //"10.0.2.2"; //Poner 10.0.0.2 cuando el serv. MySQL es LocalHost
+    static String host      = "192.168.4.138"; //"10.0.2.2"; //Poner 10.0.0.2 cuando el serv. MySQL es LocalHost
     static String baseDatos = "PokeIndex";
-    static String usuario   = "root";
+    static String usuario   = "miri";
     static String password  = "gominola";
     static String cadCon	= "jdbc:mysql://"+host+"/"+baseDatos;
 
     public static Connection con;
     public static Statement st;
-
     /**
      * Crea la conexion con la BBD
      * @throws ClassNotFoundException

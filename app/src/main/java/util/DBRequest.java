@@ -11,7 +11,7 @@ public class DBRequest extends DBConnection{
     public static List<Pokemon> getAll(){
 
         List<Pokemon> p = new ArrayList<Pokemon>();
-        String q = "SELECT * FROM Pokemon ORDER BY number";
+        String q = "SELECT * FROM Pokemon ORDER BY numero";
 
         try {
             crearConexion();
