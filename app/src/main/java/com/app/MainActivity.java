@@ -77,7 +77,6 @@ public class MainActivity extends Activity {
             buttonPokemon = (ImageButton) rootView.findViewById(R.id.pokemonbutton);
             buttonHabilities = (ImageButton) rootView.findViewById(R.id.habilitiesbutton);
             buttonTypes = (ImageButton) rootView.findViewById(R.id.typesbutton);
-            buttonStrategies = (ImageButton) rootView.findViewById(R.id.strategiesbutton);
             buttonObjects = (ImageButton) rootView.findViewById(R.id.objectsbutton);
             buttonMt = (ImageButton) rootView.findViewById(R.id.mtbutton);
 
@@ -122,14 +121,6 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), TypesActivity.class);
-                    startActivity(intent);
-                }
-            });
-
-            buttonStrategies.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getActivity(), Strategies.class);
                     startActivity(intent);
                 }
             });
