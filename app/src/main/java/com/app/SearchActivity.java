@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -105,6 +107,16 @@ public class SearchActivity extends Activity {
                     ArrayList<Pokemon> result = DBHelper.getAll();
                     PokeAdapter adapter = new PokeAdapter(getActivity(), result);
                     list.setAdapter(adapter);
+                }
+            });
+
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position,
+                                        long id) {
+                    Intent intent = new Intent(getActivity(), ItemActivity.class);
+                    intent.putExtra("number", position +1);
+                    startActivity(intent);
                 }
             });
 

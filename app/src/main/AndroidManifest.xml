@@ -3,6 +3,7 @@
     package="com.app" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -30,8 +31,13 @@
         </activity>
         <activity
             android:name="com.app.EffectivenessActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
-            android:label="@string/title_activity_effectiveness" >
+            android:label="@string/title_activity_effectiveness"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.app.ItemActivity"
+            android:label="@string/title_activity_item"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
     </application>
 
