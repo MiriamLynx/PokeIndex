@@ -12,12 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import adapter.PokeAdapter;
 import domain.Pokemon;
 import logic.DBHelper;
 
@@ -64,7 +68,7 @@ public class SearchActivity extends Activity {
         private ImageView view;
         private ImageView image;
         private ImageButton button;
-        private TextView list;
+        private ListView list;
 
         public PlaceholderFragment() {
         }
@@ -77,47 +81,36 @@ public class SearchActivity extends Activity {
             StrictMode.setThreadPolicy(policy);
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
            view  = (ImageView) rootView.findViewById(R.id.titleview);
-           image = (ImageView) rootView.findViewById(R.id.imageview);
 
             int title = getIntent().getExtras().getInt("title");
 
            switch (title){
                case 0: view.setBackgroundResource(R.drawable.pokemonsearch);
-                       image.setBackgroundResource(R.drawable.pokedex);
                    break;
                case 1: view.setBackgroundResource(R.drawable.habilitysearch);
-                   image.setBackgroundResource(R.drawable.habilidad);
                    break;
                case 2: view.setBackgroundResource(R.drawable.objectsearch);
-                   image.setBackgroundResource(R.drawable.pot);
                    break;
                case 3: view.setBackgroundResource(R.drawable.mtseach);
-                   image.setBackgroundResource(R.drawable.mtmo);
                    break;
            }
 
             button = (ImageButton) rootView.findViewById(R.id.findAllButton);
 
-            list = (TextView) rootView.findViewById(R.id.listText);
+            list = (ListView) rootView.findViewById(R.id.list);
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    List<Pokemon> result = DBHelper.getAll();
-                    list.setText(makeString(result));
+                    ArrayList<Pokemon> result = DBHelper.getAll();
+                    PokeAdapter adapter = new PokeAdapter(getActivity(), result);
+                    list.setAdapter(adapter);
                 }
             });
 
             return rootView;
         }
 
-        private String makeString(List<Pokemon> pokemons){
-            String s = "";
-            for(int i = 0; i < pokemons.size(); i++){
-                s += pokemons.get(i).getNumber() + " " + pokemons.get(i).getName() + "\n";
-            }
-            return s;
-        }
     }
 
 }

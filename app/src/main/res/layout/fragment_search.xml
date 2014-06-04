@@ -39,21 +39,13 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/findallbuttonselector" />
 
-        <ScrollView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listScroll"
+            android:id="@+id/list"
             android:layout_gravity="center_horizontal"
             android:fillViewport="false">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:id="@+id/listText"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#ffffff" />
-        </ScrollView>
+        </ListView>
 
     </LinearLayout>
 
