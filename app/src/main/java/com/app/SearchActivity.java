@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import domain.Pokemon;
-import util.DBRequest;
+import logic.DBHelper;
 
 public class SearchActivity extends Activity {
 
@@ -72,6 +73,8 @@ public class SearchActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             View rootView = inflater.inflate(R.layout.fragment_search, container, false);
            view  = (ImageView) rootView.findViewById(R.id.titleview);
            image = (ImageView) rootView.findViewById(R.id.imageview);
@@ -100,8 +103,7 @@ public class SearchActivity extends Activity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DBRequest request = new DBRequest();
-                    List<Pokemon> result = request.getAll();
+                    List<Pokemon> result = DBHelper.getAll();
                     list.setText(makeString(result));
                 }
             });
@@ -114,7 +116,6 @@ public class SearchActivity extends Activity {
             for(int i = 0; i < pokemons.size(); i++){
                 s += pokemons.get(i).getNumber() + " " + pokemons.get(i).getName() + "\n";
             }
-            System.out.println(s);
             return s;
         }
     }
