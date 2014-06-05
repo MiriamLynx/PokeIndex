@@ -41,7 +41,8 @@ public class PokeAdapter extends ArrayAdapter{
         // poder manipularlos.
         // Recogemos el ImageView y le asignamos una foto.
         ImageView imagen = (ImageView) item.findViewById(R.id.pkicon);
-        imagen.setImageResource(R.drawable.ic_launcher);
+        String icon = data.get(position).getName().toLowerCase();
+        imagen.setImageResource(context.getResources().getIdentifier("drawable/" + icon, null, context.getPackageName()));
 
         // Recogemos el TextView para mostrar el nombre y establecemos el
         // nombre.
