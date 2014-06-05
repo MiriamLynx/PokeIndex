@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,11 +16,14 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +75,8 @@ public class SearchActivity extends Activity {
         private ImageView image;
         private ImageButton button;
         private ListView list;
+        private SearchView search;
+        ArrayList<Pokemon> result;
 
         public PlaceholderFragment() {
         }
@@ -104,7 +110,7 @@ public class SearchActivity extends Activity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ArrayList<Pokemon> result = DBHelper.getAll();
+                    result = DBHelper.getAll();
                     PokeAdapter adapter = new PokeAdapter(getActivity(), result);
                     list.setAdapter(adapter);
                 }
@@ -115,8 +121,25 @@ public class SearchActivity extends Activity {
                 public void onItemClick(AdapterView<?> parent, View view, int position,
                                         long id) {
                     Intent intent = new Intent(getActivity(), ItemActivity.class);
-                    intent.putExtra("number", position +1);
+                    intent.putExtra("pokemon", (Serializable) result.get(position));
                     startActivity(intent);
+                }
+            });
+
+            search = (SearchView) rootView.findViewById(R.id.search);
+
+            search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    result = DBHelper.find(search.getQuery().toString());
+                    PokeAdapter adapter = new PokeAdapter(getActivity(), result);
+                    list.setAdapter(adapter);
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    return false;
                 }
             });
 

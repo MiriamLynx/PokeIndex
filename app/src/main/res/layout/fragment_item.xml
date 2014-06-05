@@ -18,4 +18,43 @@
         android:textColor="@android:color/white"
         android:textSize="25dp" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pkimage"
+        android:background="@drawable/blastoisei"
+        android:layout_alignTop="@+id/typea"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typea"
+        android:background="@drawable/agua"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/itemtxt"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeb"
+        android:background="@drawable/acero"
+        android:layout_below="@+id/typea"
+        android:layout_alignLeft="@+id/typea"
+        android:layout_alignStart="@+id/typea" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/desctext"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/pkimage"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>

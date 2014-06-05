@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import domain.Pokemon;
+
 public class ItemActivity extends Activity {
 
     @Override
@@ -56,6 +58,10 @@ public class ItemActivity extends Activity {
     public class PlaceholderFragment extends Fragment {
 
         TextView text;
+        ImageView image;
+        ImageView typea;
+        ImageView typeb;
+        TextView descrip;
 
         public PlaceholderFragment() {
         }
@@ -65,11 +71,28 @@ public class ItemActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_item, container, false);
 
-            int number = getIntent().getExtras().getInt("number");
+            Pokemon pokemon = (Pokemon) getIntent().getExtras().getSerializable("pokemon");
 
             text  = (TextView) rootView.findViewById(R.id.itemtxt);
 
-            text.setText("Pokemon #" + number);
+            image = (ImageView) rootView.findViewById(R.id.pkimage);
+
+            typea = (ImageView) rootView.findViewById(R.id.typea);
+
+            typeb = (ImageView) rootView.findViewById(R.id.typeb);
+
+            descrip = (TextView) rootView.findViewById(R.id.desctext);
+
+            text.setText("Pokemon " + pokemon.getNumber() + "\t" + pokemon.getName());
+
+            String imagen = pokemon.getName().toLowerCase() + "i";
+            image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
+
+            typea.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypea(), null, getPackageName()));
+
+            typeb.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypeb(), null, getPackageName()));
+
+            descrip.setText(pokemon.getDescription());
 
             return rootView;
         }
