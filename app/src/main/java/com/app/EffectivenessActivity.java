@@ -1,7 +1,6 @@
 package com.app;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import logic.DoNotAffect;
@@ -164,7 +161,7 @@ public class EffectivenessActivity extends Activity {
         }else if(type.equals("rock")){
             return R.drawable.rock;
         }else if(type.equals("normal")){
-            return R.drawable.normal;
+            return R.drawable.normaltt;
         }else if(type.equals("water")){
             return R.drawable.water;
         }
@@ -205,7 +202,7 @@ public class EffectivenessActivity extends Activity {
             }else if(type.equals("rock")){
                 return R.drawable.roca;
             }else if(type.equals("normal")){
-                return R.drawable.normalt;
+                return R.drawable.normal;
             }else if(type.equals("water")){
                 return R.drawable.agua;
             }

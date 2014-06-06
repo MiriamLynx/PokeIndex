@@ -2,8 +2,12 @@ package com.app;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import thread.SoundThread;
 
 public class MainActivity extends Activity {
 
@@ -62,10 +69,9 @@ public class MainActivity extends Activity {
         private ImageButton buttonPokemon;
         private ImageButton buttonHabilities;
         private ImageButton buttonTypes;
-        private ImageButton buttonStrategies;
         private ImageButton buttonObjects;
         private ImageButton buttonMt;
-        private ArrayList<ImageButton> buttons;
+        private SoundThread snd;
 
         public PlaceholderFragment() {
         }
@@ -125,8 +131,17 @@ public class MainActivity extends Activity {
                 }
             });
 
+            startSound();
+
             return rootView;
         }
+
+        public void startSound(){
+            final MediaPlayer mp = MediaPlayer.create(getActivity(), R.drawable.apptheme);
+            snd = new SoundThread(mp, true);
+            snd.start();
+        }
+
     }
 
 }
