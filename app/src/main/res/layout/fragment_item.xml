@@ -57,4 +57,15 @@
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/white" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/speakButton"
+        android:layout_below="@+id/desctext"
+        android:layout_toLeftOf="@+id/itemtxt"
+        android:layout_marginRight="38dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/speak"
+        android:visibility="visible" />
+
 </RelativeLayout>

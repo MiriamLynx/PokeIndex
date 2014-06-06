@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.KeyEvent;
@@ -33,6 +34,7 @@ import domain.Objeto;
 import domain.Pokemon;
 import logic.DBHelper;
 import thread.MainSound;
+import thread.SoundThread;
 
 public class SearchActivity extends Activity {
 
@@ -79,8 +81,8 @@ public class SearchActivity extends Activity {
         private ImageButton button;
         private ListView list;
         private SearchView search;
-        ArrayList<Pokemon> resultPokemon;
-        ArrayList<Objeto> resultObjeto;
+        private ArrayList<Pokemon> resultPokemon;
+        private ArrayList<Objeto> resultObjeto;
         private boolean permited;
 
         public PlaceholderFragment() {
@@ -141,6 +143,7 @@ public class SearchActivity extends Activity {
                        }
                    });
                    break;
+
                case 1: view.setBackgroundResource(R.drawable.habilitysearch);
                    break;
                case 2: view.setBackgroundResource(R.drawable.objectsearch);

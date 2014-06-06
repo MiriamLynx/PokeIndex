@@ -3,6 +3,7 @@ package com.app;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import org.w3c.dom.Text;
 import domain.Objeto;
 import domain.Pokemon;
 import thread.MainSound;
+import thread.SoundThread;
 
 public class ItemActivity extends Activity {
 
@@ -66,6 +68,7 @@ public class ItemActivity extends Activity {
         private TextView descrip;
         private boolean permited;
         private String imagen;
+        private ImageView speak;
 
         public PlaceholderFragment() {
         }
@@ -80,7 +83,7 @@ public class ItemActivity extends Activity {
             switch (outcome){
 
                 case 0:
-                    Pokemon pokemon = (Pokemon) getIntent().getExtras().getSerializable("pokemon");
+                    final Pokemon pokemon = (Pokemon) getIntent().getExtras().getSerializable("pokemon");
 
                     text  = (TextView) rootView.findViewById(R.id.itemtxt);
 
@@ -102,6 +105,18 @@ public class ItemActivity extends Activity {
                     typeb.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypeb(), null, getPackageName()));
 
                     descrip.setText(pokemon.getDescription());
+
+                    speak = (ImageView) rootView.findViewById(R.id.speakButton);
+
+                    speak.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String sound = pokemon.getName().toLowerCase();
+                            final MediaPlayer mp = MediaPlayer.create(getActivity(), getActivity().getResources().getIdentifier("drawable/" + sound + "a", null, getPackageName()));
+                            SoundThread snd = new SoundThread(mp, false);
+                            snd.start();
+                        }
+                    });
 
                     break;
 
@@ -128,6 +143,10 @@ public class ItemActivity extends Activity {
                     typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
 
                     descrip.setText(obj.getDescripcion());
+
+                    speak = (ImageView) rootView.findViewById(R.id.speakButton);
+
+                    speak.setVisibility(View.INVISIBLE);
 
                     break;
             }

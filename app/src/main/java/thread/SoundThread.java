@@ -15,7 +15,7 @@ public class SoundThread extends Thread {
     public SoundThread(MediaPlayer mp, boolean infinite){
         super("SoundThread");
         this.mp = mp;
-        mp.setLooping(true);
+        mp.setLooping(infinite);
     }
 
     @Override
