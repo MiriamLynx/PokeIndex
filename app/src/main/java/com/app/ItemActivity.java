@@ -95,7 +95,7 @@ public class ItemActivity extends Activity {
 
                     descrip = (TextView) rootView.findViewById(R.id.desctext);
 
-                    text.setText("Pokemon " + pokemon.getNumber() + "\t" + pokemon.getName());
+                    text.setText("Pokemon " + pokemon.getNumber() + "\t     " + pokemon.getName());
 
                     imagen = pokemon.getName().toLowerCase() + "i";
                     image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));

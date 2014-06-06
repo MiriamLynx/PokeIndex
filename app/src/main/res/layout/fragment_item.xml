@@ -16,7 +16,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/white"
-        android:textSize="25dp" />
+        android:textSize="35dp"
+        android:visibility="visible"
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -58,13 +60,15 @@
         android:textColor="@android:color/white" />
 
     <ImageButton
-        android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/speakButton"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="23dp"
         android:background="@drawable/speakselector"
         android:visibility="visible"
         android:layout_below="@+id/desctext"
-        android:layout_toLeftOf="@+id/typeb" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="24dp" />
 
 </RelativeLayout>
