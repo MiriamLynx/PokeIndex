@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import logic.DoNotAffect;
 import logic.Effective;
 import logic.Ineffective;
+import thread.MainSound;
 
 public class EffectivenessActivity extends Activity {
 
@@ -70,6 +71,7 @@ public class EffectivenessActivity extends Activity {
         private ImageView donotaffect;
         private ImageView donotaffectlabel;
         private ImageView title;
+        private boolean permited;
 
         public PlaceholderFragment() {
         }
@@ -125,6 +127,22 @@ public class EffectivenessActivity extends Activity {
                 donotaffectlabel.setBackgroundResource(R.drawable.noafecta);
             }
             return rootView;
+        }
+
+        @Override
+        public void onResume() {
+            MainSound.reanudeSound();
+            super.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            if(!permited){
+                MainSound.pauseSound();
+            }else{
+                permited = false;
+            }
+            super.onPause();
         }
 
     private int getId(String type){

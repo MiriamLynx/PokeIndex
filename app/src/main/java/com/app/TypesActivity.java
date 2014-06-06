@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
+import thread.MainSound;
+
 public class TypesActivity extends Activity {
 
     @Override
@@ -73,6 +75,7 @@ public class TypesActivity extends Activity {
         private ImageButton rock;
         private ImageButton steel;
         private ImageButton water;
+        private boolean permited;
 
         public PlaceholderFragment() {
         }
@@ -104,6 +107,7 @@ public class TypesActivity extends Activity {
             bug.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type","bug");
                     startActivity(intent);
@@ -113,6 +117,7 @@ public class TypesActivity extends Activity {
             dark.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "dark");
                     startActivity(intent);
@@ -122,6 +127,7 @@ public class TypesActivity extends Activity {
             dragon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "dragon");
                     startActivity(intent);
@@ -131,6 +137,7 @@ public class TypesActivity extends Activity {
             electric.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "electric");
                     startActivity(intent);
@@ -140,6 +147,7 @@ public class TypesActivity extends Activity {
             fairy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "fairy");
                     startActivity(intent);
@@ -149,6 +157,7 @@ public class TypesActivity extends Activity {
             fight.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "fight");
                     startActivity(intent);
@@ -158,6 +167,7 @@ public class TypesActivity extends Activity {
             flying.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "flying");
                     startActivity(intent);
@@ -167,6 +177,7 @@ public class TypesActivity extends Activity {
             ghost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "ghost");
                     startActivity(intent);
@@ -176,6 +187,7 @@ public class TypesActivity extends Activity {
             grass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "grass");
                     startActivity(intent);
@@ -185,6 +197,7 @@ public class TypesActivity extends Activity {
             ground.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "ground");
                     startActivity(intent);
@@ -194,6 +207,7 @@ public class TypesActivity extends Activity {
             ice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "ice");
                     startActivity(intent);
@@ -203,6 +217,7 @@ public class TypesActivity extends Activity {
             normal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "normal");
                     startActivity(intent);
@@ -212,6 +227,7 @@ public class TypesActivity extends Activity {
             poison.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "poison");
                     startActivity(intent);
@@ -221,6 +237,7 @@ public class TypesActivity extends Activity {
             rock.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "rock");
                     startActivity(intent);
@@ -230,6 +247,7 @@ public class TypesActivity extends Activity {
             steel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "steel");
                     startActivity(intent);
@@ -239,6 +257,7 @@ public class TypesActivity extends Activity {
             fire.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "fire");
                     startActivity(intent);
@@ -248,6 +267,7 @@ public class TypesActivity extends Activity {
             water.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "water");
                     startActivity(intent);
@@ -257,6 +277,7 @@ public class TypesActivity extends Activity {
             psych.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
                     intent.putExtra("type", "psych");
                     startActivity(intent);
@@ -264,6 +285,23 @@ public class TypesActivity extends Activity {
             });
             return rootView;
         }
+
+        @Override
+        public void onResume() {
+            MainSound.reanudeSound();
+            super.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            if(!permited){
+                MainSound.pauseSound();
+            }else{
+                permited = false;
+            }
+            super.onPause();
+        }
+
     }
 
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import domain.Pokemon;
+import thread.MainSound;
 
 public class ItemActivity extends Activity {
 
@@ -57,11 +58,12 @@ public class ItemActivity extends Activity {
      */
     public class PlaceholderFragment extends Fragment {
 
-        TextView text;
-        ImageView image;
-        ImageView typea;
-        ImageView typeb;
-        TextView descrip;
+        private TextView text;
+        private ImageView image;
+        private ImageView typea;
+        private ImageView typeb;
+        private TextView descrip;
+        private boolean permited;
 
         public PlaceholderFragment() {
         }
@@ -95,6 +97,22 @@ public class ItemActivity extends Activity {
             descrip.setText(pokemon.getDescription());
 
             return rootView;
+        }
+
+        @Override
+        public void onResume() {
+            MainSound.reanudeSound();
+            super.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            if(!permited){
+                MainSound.pauseSound();
+            }else{
+                permited = false;
+            }
+            super.onPause();
         }
     }
 

@@ -30,6 +30,7 @@ import java.util.List;
 import adapter.PokeAdapter;
 import domain.Pokemon;
 import logic.DBHelper;
+import thread.MainSound;
 
 public class SearchActivity extends Activity {
 
@@ -77,6 +78,7 @@ public class SearchActivity extends Activity {
         private ListView list;
         private SearchView search;
         ArrayList<Pokemon> result;
+        private boolean permited;
 
         public PlaceholderFragment() {
         }
@@ -120,6 +122,7 @@ public class SearchActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position,
                                         long id) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), ItemActivity.class);
                     intent.putExtra("pokemon", (Serializable) result.get(position));
                     startActivity(intent);
@@ -144,6 +147,22 @@ public class SearchActivity extends Activity {
             });
 
             return rootView;
+        }
+
+        @Override
+        public void onResume() {
+            MainSound.reanudeSound();
+            super.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            if(!permited){
+                MainSound.pauseSound();
+            }else{
+                permited = false;
+            }
+            super.onPause();
         }
 
     }

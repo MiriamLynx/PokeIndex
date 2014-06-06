@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import android.widget.ImageButton;
 import java.io.File;
 import java.util.ArrayList;
 
+import thread.MainSound;
 import thread.SoundThread;
 
 public class MainActivity extends Activity {
@@ -72,6 +74,7 @@ public class MainActivity extends Activity {
         private ImageButton buttonObjects;
         private ImageButton buttonMt;
         private SoundThread snd;
+        private boolean permited;
 
         public PlaceholderFragment() {
         }
@@ -89,6 +92,7 @@ public class MainActivity extends Activity {
             buttonPokemon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("title",0);
                     startActivity(intent);
@@ -98,6 +102,7 @@ public class MainActivity extends Activity {
             buttonHabilities.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("title",1);
                     startActivity(intent);
@@ -107,6 +112,7 @@ public class MainActivity extends Activity {
             buttonObjects.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("title",2);
                     startActivity(intent);
@@ -116,6 +122,7 @@ public class MainActivity extends Activity {
             buttonMt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("title",3);
                     startActivity(intent);
@@ -126,6 +133,7 @@ public class MainActivity extends Activity {
             buttonTypes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    permited = true;
                     Intent intent = new Intent(getActivity(), TypesActivity.class);
                     startActivity(intent);
                 }
@@ -136,12 +144,26 @@ public class MainActivity extends Activity {
             return rootView;
         }
 
+
         public void startSound(){
-            final MediaPlayer mp = MediaPlayer.create(getActivity(), R.drawable.apptheme);
-            snd = new SoundThread(mp, true);
-            snd.start();
+            MainSound.startSound(getActivity());
         }
 
+        @Override
+        public void onResume() {
+            MainSound.reanudeSound();
+            super.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            if(!permited){
+                MainSound.pauseSound();
+            }else{
+                permited = false;
+            }
+            super.onPause();
+        }
     }
 
 }
