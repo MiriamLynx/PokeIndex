@@ -27,7 +27,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.ObjAdapter;
 import adapter.PokeAdapter;
+import domain.Objeto;
 import domain.Pokemon;
 import logic.DBHelper;
 import thread.MainSound;
@@ -77,7 +79,8 @@ public class SearchActivity extends Activity {
         private ImageButton button;
         private ListView list;
         private SearchView search;
-        ArrayList<Pokemon> result;
+        ArrayList<Pokemon> resultPokemon;
+        ArrayList<Objeto> resultObjeto;
         private boolean permited;
 
         public PlaceholderFragment() {
@@ -96,55 +99,98 @@ public class SearchActivity extends Activity {
 
            switch (title){
                case 0: view.setBackgroundResource(R.drawable.pokemonsearch);
+                   button = (ImageButton) rootView.findViewById(R.id.findAllButton);
+
+                   list = (ListView) rootView.findViewById(R.id.list);
+
+                   button.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           resultPokemon = DBHelper.getAllPokemon();
+                           PokeAdapter adapter = new PokeAdapter(getActivity(), resultPokemon);
+                           list.setAdapter(adapter);
+                       }
+                   });
+
+                   list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                       @Override
+                       public void onItemClick(AdapterView<?> parent, View view, int position,
+                                               long id) {
+                           permited = true;
+                           Intent intent = new Intent(getActivity(), ItemActivity.class);
+                           intent.putExtra("outcome", 0);
+                           intent.putExtra("pokemon", (Serializable) resultPokemon.get(position));
+                           startActivity(intent);
+                       }
+                   });
+
+                   search = (SearchView) rootView.findViewById(R.id.search);
+
+                   search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                       @Override
+                       public boolean onQueryTextSubmit(String s) {
+                           resultPokemon = DBHelper.findPokemon(search.getQuery().toString());
+                           PokeAdapter adapter = new PokeAdapter(getActivity(), resultPokemon);
+                           list.setAdapter(adapter);
+                           return true;
+                       }
+
+                       @Override
+                       public boolean onQueryTextChange(String s) {
+                           return false;
+                       }
+                   });
                    break;
                case 1: view.setBackgroundResource(R.drawable.habilitysearch);
                    break;
                case 2: view.setBackgroundResource(R.drawable.objectsearch);
+                   button = (ImageButton) rootView.findViewById(R.id.findAllButton);
+
+                   list = (ListView) rootView.findViewById(R.id.list);
+
+                   button.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           resultObjeto = DBHelper.getAllObjeto();
+                           ObjAdapter adapter = new ObjAdapter(getActivity(), resultObjeto);
+                           list.setAdapter(adapter);
+                       }
+                   });
+
+                   list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                       @Override
+                       public void onItemClick(AdapterView<?> parent, View view, int position,
+                                               long id) {
+                           permited = true;
+                           Intent intent = new Intent(getActivity(), ItemActivity.class);
+                           intent.putExtra("outcome", 1);
+                           intent.putExtra("objeto", (Serializable) resultObjeto.get(position));
+                           startActivity(intent);
+                       }
+                   });
+
+                   search = (SearchView) rootView.findViewById(R.id.search);
+
+                   search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                       @Override
+                       public boolean onQueryTextSubmit(String s) {
+                           resultObjeto = DBHelper.findObjeto(search.getQuery().toString());
+                           ObjAdapter adapter = new ObjAdapter(getActivity(), resultObjeto);
+                           list.setAdapter(adapter);
+                           return true;
+                       }
+
+                       @Override
+                       public boolean onQueryTextChange(String s) {
+                           return false;
+                       }
+                   });
                    break;
                case 3: view.setBackgroundResource(R.drawable.mtseach);
                    break;
            }
 
-            button = (ImageButton) rootView.findViewById(R.id.findAllButton);
 
-            list = (ListView) rootView.findViewById(R.id.list);
-
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    result = DBHelper.getAll();
-                    PokeAdapter adapter = new PokeAdapter(getActivity(), result);
-                    list.setAdapter(adapter);
-                }
-            });
-
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position,
-                                        long id) {
-                    permited = true;
-                    Intent intent = new Intent(getActivity(), ItemActivity.class);
-                    intent.putExtra("pokemon", (Serializable) result.get(position));
-                    startActivity(intent);
-                }
-            });
-
-            search = (SearchView) rootView.findViewById(R.id.search);
-
-            search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String s) {
-                    result = DBHelper.find(search.getQuery().toString());
-                    PokeAdapter adapter = new PokeAdapter(getActivity(), result);
-                    list.setAdapter(adapter);
-                    return true;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String s) {
-                    return false;
-                }
-            });
 
             return rootView;
         }

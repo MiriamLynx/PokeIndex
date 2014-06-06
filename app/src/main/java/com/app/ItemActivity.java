@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import domain.Objeto;
 import domain.Pokemon;
 import thread.MainSound;
 
@@ -64,6 +65,7 @@ public class ItemActivity extends Activity {
         private ImageView typeb;
         private TextView descrip;
         private boolean permited;
+        private String imagen;
 
         public PlaceholderFragment() {
         }
@@ -73,28 +75,63 @@ public class ItemActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_item, container, false);
 
-            Pokemon pokemon = (Pokemon) getIntent().getExtras().getSerializable("pokemon");
+            int outcome = getIntent().getExtras().getInt("outcome");
 
-            text  = (TextView) rootView.findViewById(R.id.itemtxt);
+            switch (outcome){
 
-            image = (ImageView) rootView.findViewById(R.id.pkimage);
+                case 0:
+                    Pokemon pokemon = (Pokemon) getIntent().getExtras().getSerializable("pokemon");
 
-            typea = (ImageView) rootView.findViewById(R.id.typea);
+                    text  = (TextView) rootView.findViewById(R.id.itemtxt);
 
-            typeb = (ImageView) rootView.findViewById(R.id.typeb);
+                    image = (ImageView) rootView.findViewById(R.id.pkimage);
 
-            descrip = (TextView) rootView.findViewById(R.id.desctext);
+                    typea = (ImageView) rootView.findViewById(R.id.typea);
 
-            text.setText("Pokemon " + pokemon.getNumber() + "\t" + pokemon.getName());
+                    typeb = (ImageView) rootView.findViewById(R.id.typeb);
 
-            String imagen = pokemon.getName().toLowerCase() + "i";
-            image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
+                    descrip = (TextView) rootView.findViewById(R.id.desctext);
 
-            typea.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypea(), null, getPackageName()));
+                    text.setText("Pokemon " + pokemon.getNumber() + "\t" + pokemon.getName());
 
-            typeb.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypeb(), null, getPackageName()));
+                    imagen = pokemon.getName().toLowerCase() + "i";
+                    image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
 
-            descrip.setText(pokemon.getDescription());
+                    typea.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypea(), null, getPackageName()));
+
+                    typeb.setBackgroundResource(getResources().getIdentifier("drawable/" + pokemon.getTypeb(), null, getPackageName()));
+
+                    descrip.setText(pokemon.getDescription());
+
+                    break;
+
+                case 1:
+                    Objeto obj = (Objeto) getIntent().getExtras().getSerializable("objeto");
+
+                    text  = (TextView) rootView.findViewById(R.id.itemtxt);
+
+                    image = (ImageView) rootView.findViewById(R.id.pkimage);
+
+                    typea = (ImageView) rootView.findViewById(R.id.typea);
+
+                    typeb = (ImageView) rootView.findViewById(R.id.typeb);
+
+                    descrip = (TextView) rootView.findViewById(R.id.desctext);
+
+                    text.setText(obj.getNombre());
+
+                    imagen = obj.getNombre().toLowerCase() + "i";
+                    image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
+
+                    typea.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+
+                    typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+
+                    descrip.setText(obj.getDescripcion());
+
+                    break;
+            }
+
 
             return rootView;
         }
