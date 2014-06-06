@@ -38,10 +38,11 @@
             android:layout_height="50dp"
             android:id="@+id/findAllButton"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/findallbuttonselector" />
+            android:background="@drawable/findallbuttonselector"
+            android:layout_marginBottom="20dp" />
 
         <ListView
-            android:layout_width="match_parent"
+            android:layout_width="259dp"
             android:layout_height="match_parent"
             android:id="@+id/list"
             android:layout_gravity="center_horizontal"
