@@ -120,7 +120,7 @@ public class ItemActivity extends Activity {
 
                     text.setText(obj.getNombre());
 
-                    imagen = obj.getNombre().toLowerCase() + "i";
+                    imagen = obj.getImagen().toLowerCase() + "i";
                     image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
 
                     typea.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));

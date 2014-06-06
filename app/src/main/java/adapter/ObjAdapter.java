@@ -42,7 +42,7 @@ public class ObjAdapter extends ArrayAdapter{
         // poder manipularlos.
         // Recogemos el ImageView y le asignamos una foto.
         ImageView imagen = (ImageView) item.findViewById(R.id.pkicon);
-        String icon = data.get(position).getNombre();
+        String icon = data.get(position).getImagen();
         imagen.setImageResource(context.getResources().getIdentifier("drawable/" + icon, null, context.getPackageName()));
 
         // Recogemos el TextView para mostrar el nombre y establecemos el
