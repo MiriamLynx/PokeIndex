@@ -71,4 +71,41 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="24dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/pptxt"
+        android:textColor="@android:color/white"
+        android:text="puntos"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/speakButton"
+        android:layout_alignRight="@+id/pkimage"
+        android:layout_alignEnd="@+id/pkimage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/pottxt"
+        android:textColor="@android:color/white"
+        android:text="potencia"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/speakButton"
+        android:layout_alignLeft="@+id/pptxt"
+        android:layout_alignStart="@+id/pptxt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/prectxt"
+        android:textColor="@android:color/white"
+        android:text="precision"
+        android:textStyle="bold"
+        android:layout_below="@+id/pottxt"
+        android:layout_alignLeft="@+id/pottxt"
+        android:layout_alignStart="@+id/pottxt"
+        android:layout_marginTop="21dp" />
+
 </RelativeLayout>

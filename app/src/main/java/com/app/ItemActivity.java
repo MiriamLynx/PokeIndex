@@ -71,6 +71,9 @@ public class ItemActivity extends Activity {
         private boolean permited;
         private String imagen;
         private ImageView speak;
+        private TextView pp;
+        private TextView pot;
+        private TextView prec;
 
         public PlaceholderFragment() {
         }
@@ -120,6 +123,18 @@ public class ItemActivity extends Activity {
                         }
                     });
 
+                    pp = (TextView) rootView.findViewById(R.id.pptxt);
+
+                    pot = (TextView) rootView.findViewById(R.id.pottxt);
+
+                    prec = (TextView) rootView.findViewById(R.id.prectxt);
+
+                    pp.setVisibility(View.INVISIBLE);
+
+                    pot.setVisibility(View.INVISIBLE);
+
+                    prec.setVisibility(View.INVISIBLE);
+
                     break;
 
                 case 1:
@@ -150,6 +165,18 @@ public class ItemActivity extends Activity {
 
                     speak.setVisibility(View.INVISIBLE);
 
+                    pp = (TextView) rootView.findViewById(R.id.pptxt);
+
+                    pot = (TextView) rootView.findViewById(R.id.pottxt);
+
+                    prec = (TextView) rootView.findViewById(R.id.prectxt);
+
+                    pp.setVisibility(View.INVISIBLE);
+
+                    pot.setVisibility(View.INVISIBLE);
+
+                    prec.setVisibility(View.INVISIBLE);
+
                     break;
 
                 case 2:
@@ -178,6 +205,18 @@ public class ItemActivity extends Activity {
                     speak = (ImageView) rootView.findViewById(R.id.speakButton);
 
                     speak.setVisibility(View.INVISIBLE);
+
+                    pp = (TextView) rootView.findViewById(R.id.pptxt);
+
+                    pot = (TextView) rootView.findViewById(R.id.pottxt);
+
+                    prec = (TextView) rootView.findViewById(R.id.prectxt);
+
+                    pp.setVisibility(View.INVISIBLE);
+
+                    pot.setVisibility(View.INVISIBLE);
+
+                    prec.setVisibility(View.INVISIBLE);
 
                     break;
 
@@ -221,6 +260,18 @@ public class ItemActivity extends Activity {
                     speak = (ImageView) rootView.findViewById(R.id.speakButton);
 
                     speak.setVisibility(View.INVISIBLE);
+
+                    pp = (TextView) rootView.findViewById(R.id.pptxt);
+
+                    pot = (TextView) rootView.findViewById(R.id.pottxt);
+
+                    prec = (TextView) rootView.findViewById(R.id.prectxt);
+
+                    pp.setText("PP: " + mt.getPp());
+
+                    pot.setText("Potencia: " + mt.getPotencia());
+
+                    prec.setText("Precisión: " + mt.getPrecision());
 
                     break;
             }
