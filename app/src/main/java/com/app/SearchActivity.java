@@ -28,8 +28,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.HabiAdapter;
 import adapter.ObjAdapter;
 import adapter.PokeAdapter;
+import domain.Habilidad;
 import domain.Objeto;
 import domain.Pokemon;
 import logic.DBHelper;
@@ -83,6 +85,7 @@ public class SearchActivity extends Activity {
         private SearchView search;
         private ArrayList<Pokemon> resultPokemon;
         private ArrayList<Objeto> resultObjeto;
+        private ArrayList<Habilidad> resultHabilidad;
         private boolean permited;
 
         public PlaceholderFragment() {
@@ -145,7 +148,49 @@ public class SearchActivity extends Activity {
                    break;
 
                case 1: view.setBackgroundResource(R.drawable.habilitysearch);
+                   button = (ImageButton) rootView.findViewById(R.id.findAllButton);
+
+                   list = (ListView) rootView.findViewById(R.id.list);
+
+                   button.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           resultHabilidad = DBHelper.getAllHabilidad();
+                           HabiAdapter adapter = new HabiAdapter(getActivity(), resultHabilidad);
+                           list.setAdapter(adapter);
+                       }
+                   });
+
+                   list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                       @Override
+                       public void onItemClick(AdapterView<?> parent, View view, int position,
+                                               long id) {
+                           permited = true;
+                           Intent intent = new Intent(getActivity(), ItemActivity.class);
+                           intent.putExtra("outcome", 2);
+                           intent.putExtra("habilidad", (Serializable) resultHabilidad.get(position));
+                           startActivity(intent);
+                       }
+                   });
+
+                   search = (SearchView) rootView.findViewById(R.id.search);
+
+                   search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                       @Override
+                       public boolean onQueryTextSubmit(String s) {
+                           resultHabilidad = DBHelper.findHabilidad(search.getQuery().toString());
+                           HabiAdapter adapter = new HabiAdapter(getActivity(), resultHabilidad);
+                           list.setAdapter(adapter);
+                           return true;
+                       }
+
+                       @Override
+                       public boolean onQueryTextChange(String s) {
+                           return false;
+                       }
+                   });
                    break;
+
                case 2: view.setBackgroundResource(R.drawable.objectsearch);
                    button = (ImageButton) rootView.findViewById(R.id.findAllButton);
 

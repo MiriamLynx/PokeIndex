@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import domain.Habilidad;
 import domain.Objeto;
 import domain.Pokemon;
 import thread.MainSound;
@@ -143,6 +144,35 @@ public class ItemActivity extends Activity {
                     typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
 
                     descrip.setText(obj.getDescripcion());
+
+                    speak = (ImageView) rootView.findViewById(R.id.speakButton);
+
+                    speak.setVisibility(View.INVISIBLE);
+
+                    break;
+
+                case 2:
+                    Habilidad habi = (Habilidad) getIntent().getExtras().getSerializable("habilidad");
+
+                    text  = (TextView) rootView.findViewById(R.id.itemtxt);
+
+                    image = (ImageView) rootView.findViewById(R.id.pkimage);
+
+                    typea = (ImageView) rootView.findViewById(R.id.typea);
+
+                    typeb = (ImageView) rootView.findViewById(R.id.typeb);
+
+                    descrip = (TextView) rootView.findViewById(R.id.desctext);
+
+                    text.setText(habi.getName());
+
+                    image.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+
+                    typea.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+
+                    typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+
+                    descrip.setText(habi.getDescrip());
 
                     speak = (ImageView) rootView.findViewById(R.id.speakButton);
 

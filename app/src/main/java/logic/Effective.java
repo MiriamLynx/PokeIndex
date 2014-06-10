@@ -18,7 +18,7 @@ public class Effective {
     };
 
     public static String[] dragon = new String[] {
-            "dragon"
+            "dragontt"
     };
 
     public static String[] electric = new String[] {
@@ -27,7 +27,7 @@ public class Effective {
     };
 
     public static String[] fairy = new String[] {
-            "dragon",
+            "dragontt",
             "fight",
             "dark"
     };
@@ -65,7 +65,7 @@ public class Effective {
     };
 
     public static String[] ice = new String[] {
-            "dragon",
+            "dragontt",
             "grass",
             "ground",
             "flying"
@@ -117,7 +117,7 @@ public class Effective {
             return bug;
         }else if(type.equals("dark")){
             return dark;
-        }else if(type.equals("dragon")){
+        }else if(type.equals("dragontt")){
             return dragon;
         } else if(type.equals("electric")){
             return electric;

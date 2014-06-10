@@ -150,8 +150,8 @@ public class EffectivenessActivity extends Activity {
             return R.drawable.bug;
         }else if(type.equals("dark")){
             return R.drawable.dark;
-        }else if(type.equals("dragon")){
-            return R.drawable.dragon;
+        }else if(type.equals("dragontt")){
+            return R.drawable.dragontt;
         } else if(type.equals("electric")){
             return R.drawable.electric;
         }else if(type.equals("fairy")){
@@ -191,8 +191,8 @@ public class EffectivenessActivity extends Activity {
                 return R.drawable.bicho;
             }else if(type.equals("dark")){
                 return R.drawable.siniestro;
-            }else if(type.equals("dragon")){
-                return R.drawable.dragont;
+            }else if(type.equals("dragontt")){
+                return R.drawable.dragon;
             } else if(type.equals("electric")){
                 return R.drawable.electrico;
             }else if(type.equals("fairy")){

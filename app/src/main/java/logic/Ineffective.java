@@ -25,7 +25,7 @@ public class Ineffective {
     };
 
     public static String[] electric = new String[] {
-            "dragon",
+            "dragontt",
             "electric",
             "grass"
     };
@@ -45,7 +45,7 @@ public class Ineffective {
 
     public static String[] fire = new String[] {
             "water",
-            "dragon",
+            "dragontt",
             "fire",
             "rock"
     };
@@ -64,7 +64,7 @@ public class Ineffective {
     public static String[] grass = new String[] {
             "steel",
             "bug",
-            "dragon",
+            "dragontt",
             "fire",
             "grass",
             "poison",
@@ -115,7 +115,7 @@ public class Ineffective {
 
     public static String[] water = new String[] {
             "water",
-            "dragon",
+            "dragontt",
             "grass"
     };
 
@@ -124,7 +124,7 @@ public class Ineffective {
             return bug;
         }else if(type.equals("dark")){
             return dark;
-        }else if(type.equals("dragon")){
+        }else if(type.equals("dragontt")){
             return dragon;
         } else if(type.equals("electric")){
             return electric;

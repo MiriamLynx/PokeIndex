@@ -129,7 +129,7 @@ public class TypesActivity extends Activity {
                 public void onClick(View view) {
                     permited = true;
                     Intent intent = new Intent(getActivity(), EffectivenessActivity.class);
-                    intent.putExtra("type", "dragon");
+                    intent.putExtra("type", "dragontt");
                     startActivity(intent);
                 }
             });

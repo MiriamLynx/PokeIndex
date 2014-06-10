@@ -82,7 +82,7 @@ public class DoNotAffect {
             return bug;
         }else if(type.equals("dark")){
             return dark;
-        }else if(type.equals("dragon")){
+        }else if(type.equals("dragontt")){
             return dragon;
         } else if(type.equals("electric")){
             return electric;
