@@ -29,9 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.HabiAdapter;
+import adapter.MtAdapter;
 import adapter.ObjAdapter;
 import adapter.PokeAdapter;
 import domain.Habilidad;
+import domain.Mt;
 import domain.Objeto;
 import domain.Pokemon;
 import logic.DBHelper;
@@ -86,6 +88,7 @@ public class SearchActivity extends Activity {
         private ArrayList<Pokemon> resultPokemon;
         private ArrayList<Objeto> resultObjeto;
         private ArrayList<Habilidad> resultHabilidad;
+        private ArrayList<Mt> resultMt;
         private boolean permited;
 
         public PlaceholderFragment() {
@@ -235,6 +238,47 @@ public class SearchActivity extends Activity {
                    });
                    break;
                case 3: view.setBackgroundResource(R.drawable.mtseach);
+                   button = (ImageButton) rootView.findViewById(R.id.findAllButton);
+
+                   list = (ListView) rootView.findViewById(R.id.list);
+
+                   button.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           resultMt = DBHelper.getAllMt();
+                           MtAdapter adapter = new MtAdapter(getActivity(), resultMt);
+                           list.setAdapter(adapter);
+                       }
+                   });
+
+                   list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                       @Override
+                       public void onItemClick(AdapterView<?> parent, View view, int position,
+                                               long id) {
+                           permited = true;
+                           Intent intent = new Intent(getActivity(), ItemActivity.class);
+                           intent.putExtra("outcome", 3);
+                           intent.putExtra("mt", (Serializable) resultMt.get(position));
+                           startActivity(intent);
+                       }
+                   });
+
+                   search = (SearchView) rootView.findViewById(R.id.search);
+
+                   search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                       @Override
+                       public boolean onQueryTextSubmit(String s) {
+                           resultMt = DBHelper.findMt(search.getQuery().toString());
+                           MtAdapter adapter = new MtAdapter(getActivity(), resultMt);
+                           list.setAdapter(adapter);
+                           return true;
+                       }
+
+                       @Override
+                       public boolean onQueryTextChange(String s) {
+                           return false;
+                       }
+                   });
                    break;
            }
 

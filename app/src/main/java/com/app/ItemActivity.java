@@ -17,6 +17,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import domain.Habilidad;
+import domain.Mt;
 import domain.Objeto;
 import domain.Pokemon;
 import thread.MainSound;
@@ -139,9 +140,9 @@ public class ItemActivity extends Activity {
                     imagen = obj.getImagen().toLowerCase() + "i";
                     image.setBackgroundResource(getResources().getIdentifier("drawable/" + imagen, null, getPackageName()));
 
-                    typea.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+                    typea.setVisibility(View.INVISIBLE);
 
-                    typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+                    typeb.setVisibility(View.INVISIBLE);
 
                     descrip.setText(obj.getDescripcion());
 
@@ -166,13 +167,56 @@ public class ItemActivity extends Activity {
 
                     text.setText(habi.getName());
 
-                    image.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+                    image.setBackgroundResource(getResources().getIdentifier("drawable/habilidad", null, getPackageName()));
 
-                    typea.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+                    typea.setVisibility(View.INVISIBLE);
 
-                    typeb.setBackgroundResource(getResources().getIdentifier("none", null, getPackageName()));
+                    typeb.setVisibility(View.INVISIBLE);
 
                     descrip.setText(habi.getDescrip());
+
+                    speak = (ImageView) rootView.findViewById(R.id.speakButton);
+
+                    speak.setVisibility(View.INVISIBLE);
+
+                    break;
+
+                case 3:
+                    Mt mt = (Mt) getIntent().getExtras().getSerializable("mt");
+
+                    text  = (TextView) rootView.findViewById(R.id.itemtxt);
+
+                    image = (ImageView) rootView.findViewById(R.id.pkimage);
+
+                    typea = (ImageView) rootView.findViewById(R.id.typea);
+
+                    typeb = (ImageView) rootView.findViewById(R.id.typeb);
+
+                    descrip = (TextView) rootView.findViewById(R.id.desctext);
+
+                    text.setText(mt.getNumero() + "\t     " + mt.getNombre());
+
+                    String icon = "";
+
+                    if(mt.getAtaque().equals("E")){
+                        icon = "special";
+                    }else{
+                        if(mt.getAtaque().equals("O")){
+                            icon = "other";
+                        }else{
+                            if(mt.getAtaque().equals("F")){
+                                icon = "physical";
+                            }
+                        }
+                    }
+
+                    image.setBackgroundResource(getResources().getIdentifier("drawable/" + icon, null, getPackageName()));
+
+                    typea.setBackgroundResource(getResources().getIdentifier("drawable/" + mt.getTipo(), null, getPackageName()));
+
+                    typeb.setVisibility(View.INVISIBLE);
+
+                    descrip.setText(mt.getDescrip());
 
                     speak = (ImageView) rootView.findViewById(R.id.speakButton);
 
