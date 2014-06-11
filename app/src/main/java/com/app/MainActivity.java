@@ -1,25 +1,18 @@
 package com.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
-import java.io.File;
-import java.util.ArrayList;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import thread.MainSound;
 import thread.SoundThread;
@@ -45,28 +38,35 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.about, menu);
         return true;
+    }
+
+    private void showAbout() {
+        View messageView = getLayoutInflater().inflate(R.layout.about, null, false);
+        TextView textView = (TextView) messageView.findViewById(R.id.about_credits);
+        textView.setText("Esta aplicación ha sido desarrollada por " + "\n" + "Miriam Abalo Fernández" + "\n\n" + "Diseño gráfico" + "\n" + "Base de datos" + "\n" + "Backend");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle(R.string.app_name);
+        builder.setView(messageView);
+        builder.create();
+        builder.show();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.aboutitem:
+                showAbout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+
+    public class PlaceholderFragment extends Fragment {
 
         private ImageButton buttonPokemon;
         private ImageButton buttonHabilities;
@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
         private ImageButton buttonMt;
         private SoundThread snd;
         private boolean permited;
+        private MenuItem mi;
 
         public PlaceholderFragment() {
         }
@@ -143,7 +144,6 @@ public class MainActivity extends Activity {
 
             return rootView;
         }
-
 
         public void startSound(){
             MainSound.startSound(getActivity());
