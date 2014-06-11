@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.Random;
+
 import domain.Habilidad;
 import domain.Mt;
 import domain.Objeto;
@@ -175,7 +177,7 @@ public class ItemActivity extends Activity {
                     break;
 
                 case 2:
-                    Habilidad habi = (Habilidad) getIntent().getExtras().getSerializable("habilidad");
+                    Habilidad habi = (Habilidad) getIntent().getExtras().getSerializable("habilidad1");
 
                     text  = (TextView) rootView.findViewById(R.id.itemtxt);
 
@@ -189,10 +191,15 @@ public class ItemActivity extends Activity {
 
                     text.setText(habi.getName());
 
-                    String icon;
-                    
+                    Random rn = new Random();
 
-                    image.setBackgroundResource(getResources().getIdentifier("drawable/habilidad", null, getPackageName()));
+                    int number = rn.nextInt(10) + 1;
+
+                    String img = "habilidad" + number ;
+
+                    System.out.println("ICONO: " + img);
+
+                    image.setBackgroundResource(getResources().getIdentifier("drawable/" + img, null, getPackageName()));
 
                     typea.setVisibility(View.INVISIBLE);
 

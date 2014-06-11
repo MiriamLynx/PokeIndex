@@ -166,7 +166,7 @@ public class SearchActivity extends Activity {
                            permited = true;
                            Intent intent = new Intent(getActivity(), ItemActivity.class);
                            intent.putExtra("outcome", 2);
-                           intent.putExtra("habilidad", (Serializable) resultHabilidad.get(position));
+                           intent.putExtra("habilidad1", (Serializable) resultHabilidad.get(position));
                            startActivity(intent);
                        }
                    });
